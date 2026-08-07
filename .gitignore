@@ -1,0 +1,25 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencias (por si en el futuro se agrega tooling)
+node_modules/
+
+# Archivos de entorno / configuración local
+.env
+.env.local
+
+# Datos sensibles del proyecto — NO subir a un repo público
+MYSK-clientes-potenciales.xlsx
+
+# Respaldo del archivo monolítico original (no forma parte del sitio desplegado)
+index_2.html
+
+# Archivos temporales de edición
+*.tmp
+*.log
+.vscode/
+
+# Configuración local de Claude Code (no forma parte del sitio)
+.claude/
