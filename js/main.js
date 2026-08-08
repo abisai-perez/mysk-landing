@@ -9,6 +9,21 @@ for (let i = 0; i < 26; i++) {
   starsWrap.appendChild(s);
 }
 
+// aviso flotante: oferta "Toda la Línea MYSK"
+(function(){
+  var banner = document.getElementById('promoBanner');
+  var closeBtn = document.getElementById('promoClose');
+  var link = document.getElementById('promoLink');
+  if (!banner || !closeBtn || !link) return;
+
+  closeBtn.addEventListener('click', function(){
+    banner.classList.add('hidden');
+  });
+  link.addEventListener('click', function(){
+    banner.classList.add('hidden');
+  });
+})();
+
 (function(){
   // ⚠️ Reemplaza esta URL por la de tu Google Apps Script Web App (ver instrucciones)
   var SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz8D_mgZ768CcyZ5GeYXAM6IF6h6Ir9WCvjjbrDCwnF0ckfaAEgbHgMxqfBA5m_mhGjpA/exec";

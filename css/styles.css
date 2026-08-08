@@ -410,3 +410,51 @@ footer .contact a:hover{border-color:var(--gold);}
 .order-note{
   margin-top:12px;font-size:11px;color:var(--cream-dim);opacity:.7;text-align:center;
 }
+
+/* ---------- aviso flotante: oferta toda la línea ---------- */
+.promo-banner{
+  position:fixed;left:0;right:0;bottom:0;z-index:900;
+  background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold-soft) 100%);
+  border-top:2px solid var(--burgundy-deepest);
+  padding:16px 44px 16px 20px;
+  display:flex;align-items:center;justify-content:center;
+  animation:promoSlideUp .4s ease, promoGlow 2.6s ease-in-out .6s infinite;
+}
+.promo-banner.hidden{display:none;}
+@keyframes promoSlideUp{
+  from{transform:translateY(100%);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+@keyframes promoGlow{
+  0%,100%{box-shadow:0 -8px 26px -6px rgba(201,162,75,.55);}
+  50%{box-shadow:0 -10px 44px -4px rgba(201,162,75,1);}
+}
+.promo-link{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  justify-content:center;text-align:center;cursor:pointer;
+}
+.promo-badge{
+  font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.15em;
+  text-transform:uppercase;font-weight:700;
+  color:var(--gold-light);
+  background:var(--burgundy-deepest);
+  padding:5px 12px;border-radius:2px;flex-shrink:0;
+  animation:promoBadgePulse 1.8s ease-in-out infinite;
+}
+@keyframes promoBadgePulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.07);}
+}
+.promo-text{font-size:14.5px;font-weight:500;color:var(--burgundy-deepest);}
+.promo-text strong{font-family:'Cinzel',serif;font-size:16.5px;font-weight:700;}
+.promo-close{
+  position:absolute;top:9px;right:12px;
+  background:none;border:none;color:var(--burgundy-deepest);
+  font-size:20px;cursor:pointer;line-height:1;opacity:.65;
+  transition:opacity .2s ease;
+}
+.promo-close:hover{opacity:1;}
+@media (max-width:600px){
+  .promo-text{font-size:13px;}
+  .promo-text strong{font-size:14.5px;}
+}
