@@ -75,6 +75,7 @@ for (let i = 0; i < 26; i++) {
       form.reset();
       errorMsg.style.display = 'none';
       overlay.classList.add('active');
+      if (typeof fbq === 'function') fbq('track', 'Lead');
     });
   });
 
