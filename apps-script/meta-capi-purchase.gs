@@ -183,9 +183,7 @@ function enviarPurchaseAMeta(fila) {
   }
 
   var marcaTiempo = Utilities.formatDate(new Date(), Session.getScriptTimeZone() || 'America/Caracas', 'dd/MM/yyyy HH:mm');
-  var registro = exito
-    ? 'OK:' + monto + ' ' + marcaTiempo
-    : 'ERR:' + monto + ' ' + marcaTiempo + ' - ' + detalle;
+  var registro = (exito ? 'OK:' : 'ERR:') + monto + ' ' + marcaTiempo + ' - ' + detalle;
 
   sheet.getRange(fila, COL_ENVIADO_META).setValue(registro);
 }
