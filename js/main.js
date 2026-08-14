@@ -16,12 +16,35 @@ for (let i = 0; i < 26; i++) {
   var link = document.getElementById('promoLink');
   if (!banner || !closeBtn || !link) return;
 
-  closeBtn.addEventListener('click', function(){
+  var heroBtn = document.querySelector('.hero .cta-btn');
+  var ALTO_AVISO_APROX = 140; // alto aproximado del aviso (con margen), para calcular la zona de peligro
+  var mostrado = false;
+
+  function heroLibreDeLaZonaDePeligro(){
+    if (!heroBtn) return true;
+    var r = heroBtn.getBoundingClientRect();
+    var zonaPeligro = window.innerHeight - ALTO_AVISO_APROX;
+    return r.bottom <= zonaPeligro || r.bottom <= 0;
+  }
+
+  function mostrarBanner(){
+    if (mostrado || !heroLibreDeLaZonaDePeligro()) return;
+    mostrado = true;
+    banner.classList.remove('hidden');
+  }
+  function ocultarBanner(){
     banner.classList.add('hidden');
-  });
-  link.addEventListener('click', function(){
-    banner.classList.add('hidden');
-  });
+  }
+
+  // el aviso solo aparece una vez que el botón principal del hero ya no está
+  // en la franja inferior de la pantalla — evita que lo tape justo al entrar
+  // (pasaba en celulares donde el hero cabe casi completo en la pantalla)
+  mostrarBanner();
+  window.addEventListener('scroll', mostrarBanner);
+  window.addEventListener('resize', mostrarBanner);
+
+  closeBtn.addEventListener('click', ocultarBanner);
+  link.addEventListener('click', ocultarBanner);
 })();
 
 (function(){
