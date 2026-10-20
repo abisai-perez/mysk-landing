@@ -87,6 +87,7 @@ for (let i = 0; i < 26; i++) {
   var inputNombre = document.getElementById('orderNombre');
   var inputCorreo = document.getElementById('orderCorreo');
   var inputTelefono = document.getElementById('orderTelefono');
+  var inputCiudad = document.getElementById('orderCiudad');
   var currentProduct = '';
   var currentWa = '584244178242';
 
@@ -121,9 +122,10 @@ for (let i = 0; i < 26; i++) {
     var nombre = inputNombre.value.trim();
     var correo = inputCorreo.value.trim();
     var telefono = inputTelefono.value.trim();
+    var ciudad = inputCiudad.value.trim();
 
-    if (!nombre || !correo || !telefono){
-      showError('Por favor completa los tres campos: nombre, correo y teléfono.');
+    if (!nombre || !correo || !telefono || !ciudad){
+      showError('Por favor completa los cuatro campos: nombre, correo, teléfono y ciudad.');
       return;
     }
     if (!isValidEmail(correo)){
@@ -132,7 +134,7 @@ for (let i = 0; i < 26; i++) {
     }
     errorMsg.style.display = 'none';
 
-    var mensaje = 'Saludos, soy ' + nombre + ' y quiero realizar una compra del producto ' + currentProduct + '.';
+    var mensaje = 'Saludos, soy ' + nombre + ', de ' + ciudad + ', y quiero realizar una compra del producto ' + currentProduct + '.';
     var waLink = 'https://wa.me/' + currentWa + '?text=' + encodeURIComponent(mensaje);
 
     // Simula un clic real sobre un enlace <a target="_blank">, igual que hacían
@@ -155,6 +157,7 @@ for (let i = 0; i < 26; i++) {
       nombre: nombre,
       correo: correo,
       telefono: telefono,
+      ciudad: ciudad,
       producto: currentProduct,
       fuente: sourceInfo.fuente,
       medio: sourceInfo.medio,

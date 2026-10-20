@@ -210,6 +210,31 @@ section.intro h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:14px;}
 section.intro p{
   color:var(--cream-dim);max-width:56ch;margin:0 auto;font-size:15.5px;
 }
+.fragrances-divider{
+  text-align:center;
+  padding:100px 0 60px;
+  background:linear-gradient(180deg, transparent, rgba(90,22,38,.45), transparent);
+  border-top:1px solid rgba(201,162,75,.25);
+  border-bottom:1px solid rgba(201,162,75,.25);
+}
+.fragrances-divider p{
+  color:var(--cream-dim);max-width:56ch;margin:0 auto;font-size:15.5px;
+}
+.fragrances-logo{
+  font-size:clamp(48px,9vw,84px);
+  letter-spacing:0.16em;
+  margin-bottom:16px;
+}
+.fragrances-logo span{
+  display:block;
+  font-family:'Raleway',sans-serif;
+  font-size:clamp(14px,2vw,18px);
+  letter-spacing:0.6em;
+  color:var(--gold);
+  font-weight:500;
+  text-transform:uppercase;
+  margin-top:14px;
+}
 
 /* ---------- product cards ---------- */
 .products{
